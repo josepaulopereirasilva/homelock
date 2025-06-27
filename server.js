@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/equipamentos',(req,res)=>{
-  res.render('equipamentos')
+  res.render('equipamentos', {produtos})
 })
 
 // Página de produto

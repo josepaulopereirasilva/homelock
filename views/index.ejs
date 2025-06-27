@@ -191,6 +191,15 @@
   object-fit: contain;
 }
 @media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   #titulo {
     font-size: 20px;
     height: auto;
@@ -201,11 +210,13 @@
   .containerBanner,
   .containerBanner2,
   .containerBanner3 {
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     height: auto;
     padding: 20px 10px;
     position: static;
+    width: 100%;
   }
 
   .containerTexto,
@@ -233,10 +244,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
   }
 
   .containerTexto4 {
-    width: 90%;
+    width: 100%;
     height: auto;
     margin: 10px 0;
   }
@@ -244,12 +256,14 @@
   nav ul {
     flex-direction: column;
     text-align: center;
+    padding: 0;
   }
 
   nav ul li {
     margin: 10px 0;
+    list-style: none;
   }
-}
+} 
   </style>
   <script>
     function redirect(){

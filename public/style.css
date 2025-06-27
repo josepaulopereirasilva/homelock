@@ -32,7 +32,7 @@ header {
   width: 80px;
   height: 30px;
   font-size: 20px;
-  background-color: #d9d9d9;
+  background-color: #eaeaea;
   color: #000;
   border-radius: 5px;
   border: none;
@@ -179,7 +179,7 @@ nav a:hover::after {
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 380px; /* Altura fixa para manter padrão */
+  height: 350px; /* Altura fixa para manter padrão */
   justify-content: space-between;
 }
 
@@ -214,37 +214,36 @@ nav a:hover::after {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  max-height: 160px;
-  overflow: hidden;
+  justify-content: space-between;
 }
 
 .info-produto h4 {
   color: #000;
   margin-top: 0;
+  min-height: 36px; /* altura padronizada para títulos */
+  line-height: 1.2;
+  font-size: 16px;
 }
 
-.info-produto p {
-  color: #333;
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+.info-produto .botao-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.info-produto button {
+.info-produto .botao-container button {
   background-color: #ffcc00;
   border: none;
-  border-radius: 0px;
-  padding: 10px 20px;
+  margin-top: -20px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 16px;
+  width: 140px;
+  height: 40px;
 }
 
-.info-produto button:hover {
+.info-produto .botao-container button:hover {
   background-color: #e6b800;
 }
 

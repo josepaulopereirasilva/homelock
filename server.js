@@ -41,7 +41,7 @@ const produtos = {
   },
   'revolver': {
     titulo: 'Revólver',
-    preco: 'R$ 8.000,00',
+    preco: 'R$ 8.500,00',
     descricao: 'Efetividade Garantida.',
     imagem: 'revolver.jpg'
   },

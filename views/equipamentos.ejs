@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ConquistaGuard - Segurança Residencial</title>
-  <link rel="icon" href="casa.ico" type="image/x-icon" />
+  <link rel="icon" href="/conquistaguard.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="logo" onclick="redirect()" style="cursor: pointer; display: inline-block;">
-      <img src="logo.ico" alt="ConquistaGuard Logo" />
+      <img src="/conquistaguard.ico" alt="ConquistaGuard Logo" />
     </div>
     <div class="div_pesquisa">
       <input type="text" class="input_pesquisa" id="campoBusca" placeholder="Digite aqui sua busca...">
@@ -37,21 +37,22 @@
       <div class="area-central">
         <div class="lista-produtos">
 
-          <% for (let slug in produtos) { const p = produtos[slug]; %>
-          <div class="produto">
-            <div class="produto-img-container">
-              <img src="<%= p.imagem %>" alt="<%= p.titulo %>" />
-              <div class="preco"><%= p.preco %></div>
-            </div>
-            <div class="info-produto">
-              <h4><%= p.titulo %></h4>
-              <p><%= p.descricao %></p>
-              <a href="/produto/<%= slug %>">
-                <button>Comprar</button>
-              </a>
-            </div>
-          </div>
-          <% } %>
+          <% produtos.forEach(produto => { %>
+            <a href="/produto/<%= produto.nome %>" class="produto-link">
+              <div class="produto">
+                <div class="produto-img-container">
+                  <img src="/imgProdutos/<%= produto.img %>" alt="<%= produto.nome %>" />
+                  <div class="preco">
+                    <%= produto.preco %>
+                  </div>
+                </div>
+                <div class="info-produto">
+                  <h4><%= produto.nome %></h4>
+                  <button>Saiba Mais</button>
+                </div>
+              </div>
+            </a>
+          <% }); %>
 
         </div>
       </div>
@@ -61,21 +62,6 @@
   <footer>
     <p>&copy; 2025 ConquistaGuard Todos os direitos reservados.</p>
   </footer>
-
-  <style>
-    @media (max-width: 768px) {
-      .div_pesquisa {
-        width: 90%;
-        margin: 10px auto;
-      }
-
-      .sugestoes {
-        width: 100%;
-        left: 0;
-        right: 0;
-      }
-    }
-  </style>
 
   <script>
     function redirect(){
@@ -113,7 +99,7 @@
       titulos.forEach(titulo => {
         const texto = titulo.textContent.toLowerCase();
         if (texto.includes(termo)) {
-          const slug = titulo.parentElement.querySelector("a").getAttribute("href").split("/produto/")[1];
+          const slug = titulo.closest(".produto-link").getAttribute("href").split("/produto/")[1];
           const item = document.createElement("div");
           item.classList.add("sugestao-item");
           item.textContent = titulo.textContent;

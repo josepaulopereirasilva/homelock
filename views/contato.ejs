@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - HomeLock</title>
+  <link rel="icon" href="/casa.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .conteudo {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .conteudo h1 {
+    color: #ffcc00;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 10px; /* mesmo padding dos inputs se desejar esse alinhamento */
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="redirect()" style="cursor: pointer; display: inline-block;">
+      <a href="/"><img src="/logo.ico" alt="HomeLock Logo" style="height: 100px;"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/equipamentos">Equipamentos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    
+    <form>
+      <h1>Fale Conosco</h1>
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu e-mail" required />
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 HomeLock. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    function redirect(){
+      window.location.href = '/'
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= produto.titulo %> - HomeLock</title>
+  <link rel="icon" href="/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .produto-container {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .produto-container img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .produto-container h1 {
+      color: #ffcc00;
+      font-size: 28px;
+      margin-top: 20px;
+    }
+    .produto-container p {
+      color: #ccc;
+      margin: 15px 0;
+    }
+    .produto-container strong {
+      color: #ffcc00;
+      font-size: 1.8em;
+    }
+    .produto-container button {
+      margin-top: 20px;
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size:32px;
+      height: 100px;
+      width: 400px;
+    }
+    .produto-container button:hover {
+      background-color: #e6b800;
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <div class="logo" onclick="redirect()" style="cursor: pointer; display: inline-block;">
+        <img src="/logo.ico" alt="HomeLock Logo" style="height: 100px;">
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="/equipamentos">Equipamentos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="produto-container">
+    <img src="/<%= produto.imagem %>" alt="<%= produto.titulo %>" />
+    <h1><%= produto.titulo %></h1>
+    <p><%= produto.descricao %></p>
+    <strong><%= produto.preco %></strong>
+    <div>
+      <button onclick="alert('Compra simulada! Em breve você poderá finalizar o pagamento.')">Continuar para o Pagamento</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 HomeLock. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    function redirect(){
+      window.location.href = '/'
+    }
+  </script>
+  <style>
+    body{
+      background-color: white;
+    }
+  </style>
+</body>
+</html>

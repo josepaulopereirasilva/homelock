@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeLock - Segurança Residencial</title>
+  <link rel="icon" href="casa.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    
+    <div class="logo" onclick="redirect()" style="cursor: pointer; display: inline-block;">
+      <img src="logo.ico" alt="HomeLock Logo" />
+    </div>
+    <div class="div_pesquisa">
+        <input type="text" class="input_pesquisa" id="campoBusca" placeholder="Digite aqui sua busca...">
+        <button class="btn_pesquisa" id="botaoBusca">Buscar</button>
+        <div class="sugestoes" id="sugestoes"></div>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="/equipamentos">Equipamentos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner">
+      <h2>Proteja o que importa</h2>
+      <p>Soluções completas em segurança: câmeras, alarmes e mais.</p>
+    </section>
+
+    <section id="produtos" class="produtos">
+      <h3>Nossos Produtos</h3>
+      <div class="area-central">
+      <div class="lista-produtos">
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="camera.jpg" alt="Câmera de Segurança" />
+            <div class="preco">R$ 299,00</div>
+          </div>
+          <div class="info-produto">
+            <h4>Câmera IP Wi-Fi</h4>
+            <p>Alta resolução, visão noturna, acesso remoto.</p>
+            <a href="/produto/camera-ip-wifi">
+              <button>Comprar</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="alarme.jpg" alt="Intelligent Alarm" />
+            <div class="preco">R$ 199,00</div>
+          </div>
+          <div class="info-produto">
+            <h4>Alarme Inteligente</h4>
+            <p>Controle remoto, sensores de presença e disparo sonoro.</p>
+            <a href="/produto/intelligent-alarm">
+              <button>Comprar</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="baba.jpg" alt="Babá Eletrônica" />
+            <div class="preco">R$ 379,00</div>
+          </div>
+          <div class="info-produto">
+            <h4>Babá Eletrônica</h4>
+            <p>Monitoramento de áudio e vídeo em tempo real para bebês.</p>
+            <a href="/produto/baba-eletronica">
+              <button>Comprar</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="solar.jpg" alt="Câmera Solar" />
+            <div class="preco">R$ 449,00</div>
+          </div>
+          <div class="info-produto">
+            <h4>Câmera com Luz Solar</h4>
+            <p>Câmera com painel solar e LED de segurança integrado.</p>
+            <a href="/produto/camera-solar">
+              <button>Comprar</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="produto">
+          <div class="produto-img-container">
+            <img src="revolver.jpg" alt="Simulador de Arma" />
+            <div class="preco">R$ 8.000,00</div>
+          </div>
+          <div class="info-produto">
+            <h4>Revólver</h4>
+            <p>Efetividade garantida.</p>
+            <a href="/produto/revolver">
+              <button>Comprar</button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 HomeLock. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    function redirect(){
+      window.location.href = '/'
+    }
+     document.getElementById("botaoBusca").addEventListener("click", function () {
+        const termoBusca = document.getElementById("campoBusca").value.toLowerCase();
+        const produtos = document.querySelectorAll(".produto");
+        
+        const container_produtos = document.getElementById('produtos')
+        produtos.forEach(produto => {
+        const titulo = produto.querySelector("h4").textContent.toLowerCase();
+        if (titulo.includes(termoBusca)) {
+            produto.style.display = "flex"; // mostra
+        } else {
+            produto.style.display = "none"; // esconde
+            container_produtos.style.textAlign ="center"
+        }
+        });
+    });
+    const campoBusca = document.getElementById("campoBusca");
+    const sugestoes = document.getElementById("sugestoes");
+
+    campoBusca.addEventListener("input", () => {
+        const termo = campoBusca.value.toLowerCase();
+        sugestoes.style.opacity = '100%'
+        sugestoes.innerHTML = "";
+        if (termo.length === 0){
+            sugestoes.style.opacity = '0'
+        }
+
+        const titulos = document.querySelectorAll(".produto h4");
+        titulos.forEach(titulo => {
+        const texto = titulo.textContent.toLowerCase();
+        if (texto.includes(termo)) {
+            const slug = titulo.parentElement.querySelector("a").getAttribute("href").split("/produto/")[1];
+            const item = document.createElement("div");
+            item.classList.add("sugestao-item");
+            item.textContent = titulo.textContent;
+            item.onclick = () => {
+            window.location.href = `/produto/${slug}`;
+            };
+            sugestoes.appendChild(item);
+        }
+        });
+    });
+
+  // Oculta sugestões ao clicar fora
+  document.addEventListener("click", (e) => {
+    if (!document.querySelector(".div_pesquisa").contains(e.target)) {
+      sugestoes.innerHTML = "";
+    }
+  });
+  </script>
+</body>
+</html>

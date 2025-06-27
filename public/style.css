@@ -223,7 +223,6 @@ nav a:hover::after {
   font-size: 16px;
   line-height: 1.2;
   min-height: 42px;
-
   /* Truncamento de texto longo */
   overflow: hidden;
   text-overflow: ellipsis;
@@ -415,11 +414,11 @@ footer {
   }
 
   .info-produto p {
-    font-size: 14px;
+    font-size: 12px;
     -webkit-line-clamp: 5;
   }
   .info-produto h4 {
-  font-size: 15px;
+  font-size: 12px;
   min-height: 42px;
 
   overflow: hidden;

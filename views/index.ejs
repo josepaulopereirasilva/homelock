@@ -190,6 +190,66 @@
   max-height: 80%;
   object-fit: contain;
 }
+@media (max-width: 768px) {
+  #titulo {
+    font-size: 20px;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .containerBanner,
+  .containerBanner2,
+  .containerBanner3 {
+    flex-direction: column;
+    display: flex;
+    height: auto;
+    padding: 20px 10px;
+    position: static;
+  }
+
+  .containerTexto,
+  .containerTexto2,
+  .containerTexto3 {
+    width: 100%;
+    height: auto;
+    position: static;
+    text-align: left;
+  }
+
+  .imagemInicial,
+  .imagemInicial2,
+  .imagemInicial4 {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin-top: 10px;
+    display: block;
+  }
+
+  .containerBanner4 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .containerTexto4 {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
   </style>
   <script>
     function redirect(){
